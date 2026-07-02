@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import manosDeVueltaImg from './assets/manos_de_vuelta.png';
 import tamanacoImg from './assets/tamanaco.jpg';
+import alejandroImg from './assets/alejandro.jpg';
 
 function App() {
   const projectsData = [
@@ -122,8 +123,8 @@ function App() {
                 href={`#${sec}`}
                 onClick={(e) => handleNavClick(e, sec)}
                 className={`font-label-md text-label-md transition-all duration-200 capitalize ${activeSection === sec
-                    ? 'text-primary font-bold active-glow-text'
-                    : 'text-on-surface-variant hover:text-primary'
+                  ? 'text-primary font-bold active-glow-text'
+                  : 'text-on-surface-variant hover:text-primary'
                   }`}
               >
                 {sec === 'sobre-mi' ? 'Sobre Mí' : sec}
@@ -152,8 +153,8 @@ function App() {
                 href={`#${sec}`}
                 onClick={(e) => handleNavClick(e, sec)}
                 className={`w-full text-center py-2 font-label-md text-label-md transition-all capitalize ${activeSection === sec
-                    ? 'text-primary font-bold'
-                    : 'text-on-surface-variant hover:text-primary'
+                  ? 'text-primary font-bold'
+                  : 'text-on-surface-variant hover:text-primary'
                   }`}
               >
                 {sec === 'sobre-mi' ? 'Sobre Mí' : sec}
@@ -198,12 +199,13 @@ function App() {
               >
                 Ver Proyectos
               </button>
-              <button
-                onClick={() => alert('Descargando Currículum Vitae (Simulado)...')}
-                className="w-full sm:w-auto border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md py-3 px-8 rounded-lg transition-all duration-200 hover:bg-primary/5 cursor-pointer"
+              <a
+                href="/Curriculum%20Alejandro.pdf"
+                download="Curriculum_Alejandro_Viana.pdf"
+                className="w-full sm:w-auto text-center border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md py-3 px-8 rounded-lg transition-all duration-200 hover:bg-primary/5 cursor-pointer"
               >
                 Descargar CV
-              </button>
+              </a>
               <div className="flex items-center gap-2 ml-0 sm:ml-4">
                 <button
                   onClick={() => alert('Proyecto en React de Alejandro')}
@@ -235,8 +237,8 @@ function App() {
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden relative border border-outline-variant/30 active-glow">
               <img
                 className="w-full h-full object-cover"
-                alt="A professional studio portrait of Alejandro"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuArUskWgJNvwSbevSABxlqu6cM_zXFB2q2EjOAOXSEfxCSTBNv0xO_2D3WkJVUgP28Rrzp1smpZ-Vkv5AtvVZRwE5zdfn9RYBObFxitduEypZiK5mDteNyyWemm_PNm7NHPVgUiJ8ybZRl2FDMY4aG3hgzglflGBrtVnlvHBmsz2s21xzCeayBm7Pcgik04jOob_l7fzkSEDfpQhFepZVt122m4sJSdolJQFcmib3RsirwzIwIltMwIBaM7V-nLx84VQ4tc_T0CyEeR"
+                alt="Alejandro's Profile Picture"
+                src={alejandroImg}
               />
             </div>
           </div>
