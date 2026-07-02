@@ -1,6 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
+import manosDeVueltaImg from './assets/manos_de_vuelta.png';
+import tamanacoImg from './assets/tamanaco.jpg';
 
 function App() {
+  const projectsData = [
+    {
+      title: "Hotel Tamanaco - Sistema de Satisfacción",
+      description: "Sistema premium de encuestas y dashboard administrativo para el Hotel Tamanaco, con selector telefónico global y panel con Supabase Auth.",
+      tags: ["React 18", "Vite", "Tailwind CSS", "Supabase", "React Router DOM v6"],
+      status: "En vivo",
+      image: tamanacoImg,
+      codeLink: "https://github.com/AlejandroV69/sistema-satisfaccion-tamanaco",
+      demoLink: "https://sistema-satisfaccion-tamanaco-edua09fe3.vercel.app/"
+    },
+    {
+      title: "Manos de Vuelta",
+      description: "Plataforma solidaria en Venezuela para solicitar o donar alimentos, medicinas e insumos médicos dentro de su comunidad con contacto directo por WhatsApp.",
+      tags: ["React", "Supabase", "Tailwind", "WhatsApp API"],
+      status: "En vivo",
+      image: manosDeVueltaImg,
+      codeLink: "https://github.com/AlejandroV69/Manos_de_Vuelta",
+      demoLink: "https://manos-de-vuelta.vercel.app"
+    },
+  ];
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
   const [formData, setFormData] = useState({ nombre: '', correo: '', mensaje: '' });
@@ -53,7 +76,7 @@ function App() {
           // Add visible classes for fade-in scroll animation
           entry.target.classList.add('opacity-100', 'translate-y-0');
           entry.target.classList.remove('opacity-0', 'translate-y-4');
-          
+
           // Update active navigation link
           if (sections.includes(entry.target.id)) {
             setActiveSection(entry.target.id);
@@ -98,11 +121,10 @@ function App() {
                 key={sec}
                 href={`#${sec}`}
                 onClick={(e) => handleNavClick(e, sec)}
-                className={`font-label-md text-label-md transition-all duration-200 capitalize ${
-                  activeSection === sec
+                className={`font-label-md text-label-md transition-all duration-200 capitalize ${activeSection === sec
                     ? 'text-primary font-bold active-glow-text'
                     : 'text-on-surface-variant hover:text-primary'
-                }`}
+                  }`}
               >
                 {sec === 'sobre-mi' ? 'Sobre Mí' : sec}
               </a>
@@ -129,11 +151,10 @@ function App() {
                 key={sec}
                 href={`#${sec}`}
                 onClick={(e) => handleNavClick(e, sec)}
-                className={`w-full text-center py-2 font-label-md text-label-md transition-all capitalize ${
-                  activeSection === sec
+                className={`w-full text-center py-2 font-label-md text-label-md transition-all capitalize ${activeSection === sec
                     ? 'text-primary font-bold'
                     : 'text-on-surface-variant hover:text-primary'
-                }`}
+                  }`}
               >
                 {sec === 'sobre-mi' ? 'Sobre Mí' : sec}
               </a>
@@ -234,80 +255,62 @@ function App() {
             <p className="text-on-surface-variant font-label-md text-label-md">Explora mis últimos trabajos</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-            {/* Card 1 */}
-            <div className="glass-card rounded-xl overflow-hidden flex flex-col glow-hover transition-all duration-300 group">
-              <div className="h-56 overflow-hidden relative">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="E-commerce UI Mockup"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD67qI6esegrq8dNqoIHURQ7lw0FwvbTeCUsugFzmt-BNcCddAQNT1nlwUAqJ-jGgU8pTiP-btRRJxqflTEl98hM6k4e5ekrQ7icsOovhFgnlWF_vyW2syHTGSVsaEzJpsmjhRskoj2bEnSCQ-6TycYeCRW9l1fx1g8MYlOcq_1yoD-y55cRp6Y7JYqXH5EaWeflSEmNC8OPyCxpuRtYFZWd5yATmmUGGnNjTRU1_EPmxN9gFAW72vps2nNzZMAn63XtyXLPGi8yEEq"
-                />
-                <div className="absolute top-4 right-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full border border-outline-variant/30 text-primary font-label-sm text-label-sm select-none">
-                  En vivo
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-4xl mx-auto justify-center">
+            {projectsData.map((project, idx) => (
+              <div key={idx} className="glass-card rounded-xl overflow-hidden flex flex-col glow-hover transition-all duration-300 group">
+                <div className="h-56 overflow-hidden relative">
+                  <img
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    alt={`${project.title} UI Mockup`}
+                    src={project.image}
+                  />
+                  {project.status && (
+                    <div className="absolute top-4 right-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full border border-outline-variant/30 text-primary font-label-sm text-label-sm select-none">
+                      {project.status}
+                    </div>
+                  )}
+                </div>
+                <div className="p-6 space-y-4 flex-grow flex flex-col">
+                  <h3 className="font-headline-md text-headline-md text-on-surface">{project.title}</h3>
+                  <p className="text-on-surface-variant font-body-md text-body-md text-left">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="px-3 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant/10">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-4 pt-4 mt-auto">
+                    <button
+                      onClick={() => {
+                        if (project.codeLink && project.codeLink !== '#') {
+                          window.open(project.codeLink, '_blank', 'noopener,noreferrer');
+                        } else {
+                          alert(`Redireccionando al repositorio de GitHub de ${project.title}... (Simulado)`);
+                        }
+                      }}
+                      className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border border-outline-variant hover:bg-primary/10 hover:border-primary transition-all text-on-surface font-label-md text-label-md cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[18px] select-none">code</span> Código
+                    </button>
+                    <button
+                      onClick={() => {
+                        if (project.demoLink && project.demoLink !== '#') {
+                          window.open(project.demoLink, '_blank', 'noopener,noreferrer');
+                        } else {
+                          alert(`Demo en vivo de ${project.title} (Simulado)`);
+                        }
+                      }}
+                      className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-primary-container/20 text-primary border border-primary/30 hover:bg-primary-container transition-all text-on-primary-container font-label-md text-label-md cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[18px] select-none">visibility</span> Demo
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="p-6 space-y-4 flex-grow flex flex-col">
-                <h3 className="font-headline-md text-headline-md text-on-surface">E-commerce React</h3>
-                <p className="text-on-surface-variant font-body-md text-body-md">
-                  Plataforma de ventas con carrito y pagos integrados. Optimizada para rendimiento y accesibilidad.
-                </p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  <span className="px-3 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant/10">React</span>
-                  <span className="px-3 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant/10">Tailwind</span>
-                  <span className="px-3 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant/10">Supabase</span>
-                </div>
-                <div className="flex gap-4 pt-4 mt-auto">
-                  <button
-                    onClick={() => alert('Redireccionando al repositorio de GitHub... (Simulado)')}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border border-outline-variant hover:bg-primary/10 hover:border-primary transition-all text-on-surface font-label-md text-label-md cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[18px] select-none">code</span> Código
-                  </button>
-                  <button
-                    onClick={() => alert('Abriendo demo en vivo... (Simulado)')}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-primary-container/20 text-primary border border-primary/30 hover:bg-primary-container transition-all text-on-primary-container font-label-md text-label-md cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[18px] select-none">visibility</span> Demo
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="glass-card rounded-xl overflow-hidden flex flex-col glow-hover transition-all duration-300 group">
-              <div className="h-56 overflow-hidden relative">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Task Manager UI Mockup"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaUZMGRxK3EUIszEBUZPwPNQs59A6-o5orKKQinTzx9Lm9ADofePfDRxmqsx1-_VbINyR2Vli-nGgqd8taDFN9pld6XzsITYn_hhEKMyrhW6c5nCCug1nUdzdBIyFOusdTdCz1E5bC9KCuTq62PTw04rR17tjciEk8WzubOd1p2RNy-N30hxh7HbKFw25XdFK8EDRdImbZ4cxOwxk-47yI_ypxu6E67kkAAZ9TrVK1YFGcJhJ2pFX6n1gfNFE39dM_vWMhEMZ70Gqi"
-                />
-              </div>
-              <div className="p-6 space-y-4 flex-grow flex flex-col">
-                <h3 className="font-headline-md text-headline-md text-on-surface">Task Manager</h3>
-                <p className="text-on-surface-variant font-body-md text-body-md">
-                  App de gestión de tareas con persistencia local. Interfaz intuitiva enfocada en la productividad personal.
-                </p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  <span className="px-3 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant/10">React</span>
-                  <span className="px-3 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant/10">LocalStorage</span>
-                </div>
-                <div className="flex gap-4 pt-4 mt-auto">
-                  <button
-                    onClick={() => alert('Redireccionando al repositorio de GitHub... (Simulado)')}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border border-outline-variant hover:bg-primary/10 hover:border-primary transition-all text-on-surface font-label-md text-label-md cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[18px] select-none">code</span> Código
-                  </button>
-                  <button
-                    onClick={() => alert('Abriendo demo en vivo... (Simulado)')}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-primary-container/20 text-primary border border-primary/30 hover:bg-primary-container transition-all text-on-primary-container font-label-md text-label-md cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[18px] select-none">visibility</span> Demo
-                  </button>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -363,9 +366,9 @@ function App() {
                 </div>
                 <div className="text-center space-y-4 relative z-10">
                   <span className="material-symbols-outlined text-6xl text-primary mb-4 block select-none">engineering</span>
-                  <div className="font-display-lg-mobile text-primary font-bold">4+</div>
+                  <div className="font-display-lg-mobile text-primary font-bold">10</div>
                   <div className="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">
-                    Semestres de Ingeniería
+                    Ingeniería de Sistemas (Último Semestre)
                   </div>
                 </div>
               </div>
