@@ -35,14 +35,6 @@
   --color-on-error-container: #ffdad6;
   --color-surface-tint: #7bd0ff;
 
-  /* Animations */
-  @utility animate-fade-in {
-    animation: fadeIn 0.3s ease-out;
-  }
-  @utility animate-blink {
-    animation: blink 1s step-end infinite;
-  }
-
   /* Font Families */
   --font-body-lg: "Geist", sans-serif;
   --font-label-md: "JetBrains Mono", monospace;
@@ -68,6 +60,14 @@
   --spacing-section-gap: 5rem;
   --spacing-margin-desktop: 2rem;
   --spacing-margin-mobile: 1rem;
+}
+
+/* Animations */
+@utility animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+@utility animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
 body {
