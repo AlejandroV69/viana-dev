@@ -35,6 +35,14 @@
   --color-on-error-container: #ffdad6;
   --color-surface-tint: #7bd0ff;
 
+  /* Animations */
+  @utility animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  @utility animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
   /* Font Families */
   --font-body-lg: "Geist", sans-serif;
   --font-label-md: "JetBrains Mono", monospace;
@@ -93,4 +101,14 @@ body {
 .nav-blur {
   background: rgba(15, 20, 24, 0.8);
   backdrop-filter: blur(16px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
