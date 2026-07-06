@@ -41,7 +41,7 @@ function App() {
   const [formStatus, setFormStatus] = useState(null); // 'success', 'error', etc.
   const [typewriterText, setTypewriterText] = useState('');
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const fullTitle = "Frontend Developer & Estudiante de Ingeniería de Sistemas";
+  const fullTitle = "Frontend Developer & Creador de Soluciones Web";
 
   // Sections list for scroll tracking
   const sections = ['inicio', 'proyectos', 'sobre-mi', 'contacto'];
