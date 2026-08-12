@@ -3,9 +3,10 @@ export const experienceData = [
     role: 'Desarrollador Full-Stack (ERP)',
     company: 'Humanitas',
     period: 'Marzo 2026 - Mayo 2026',
-    description: 'Desarrollo Full-Stack en la plataforma ERP empresarial de Humanitas. Diseño e implementación de módulos complejos de gestión, modales dinámicas de registro (Proveedores, Clientes, Inventarios) con validación de formularios en tiempo real y arquitectura de base de datos.',
+    description: 'Desarrollo Full-Stack en la plataforma ERP empresarial de Humanitas bajo metodologías ágiles (Scrum). Trabajo colaborativo en equipo mediante Git y GitHub como control de versiones, participando activamente en sprints de desarrollo y daily Scrum meetings para garantizar entregas continuas y oportunas. Diseño e implementación de módulos complejos de gestión, modales dinámicas de registro (Proveedores, Clientes, Inventarios) con validación de formularios en tiempo real y arquitectura de base de datos.',
     achievements: [
       'Desarrollo e integración del módulo empresarial de registro de proveedores e insumos.',
+      'Trabajo en equipo con metodología Scrum, participando en planificación de Sprints, Daily Dailies y control de versiones con Git/GitHub.',
       'Diseño e implementación de modales dinámicas con validación de datos (Cédula, RIF, Tipo de Persona).',
       'Integración Full-Stack entre la capa de interfaz responsiva y los servicios backend del ERP.'
     ]
