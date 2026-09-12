@@ -33,11 +33,11 @@ const ExperienceSection = () => {
                   {/* Content Box */}
                   <div className="ml-10 sm:ml-0 sm:w-1/2 sm:px-8">
                     <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 transition-colors space-y-3">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-mono font-medium text-cyan-400 bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <span className="text-xs font-mono font-medium text-cyan-400 bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-500/20 whitespace-nowrap">
                           {exp.period}
                         </span>
-                        <span className="text-xs text-slate-500 font-mono">{exp.company}</span>
+                        <span className="text-xs text-slate-400 font-mono sm:text-right">{exp.company}</span>
                       </div>
 
                       <h3 className="text-lg font-bold text-slate-100">{exp.role}</h3>

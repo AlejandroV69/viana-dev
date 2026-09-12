@@ -23,14 +23,14 @@ export const experienceData = [
     ]
   },
   {
-    role: 'Frontend Developer & Estudiante de Ing. de Sistemas',
+    role: 'Ingeniero de Sistemas',
     company: 'Politécnico Santiago Mariño - Extensión Caracas',
-    period: '2021 - Actualidad (Último Semestre)',
-    description: 'Estudios avanzados de Ingeniería de Sistemas y construcción paralela de aplicaciones web interactivas, consumo de APIs RESTful, diseño de dashboards administrativos y maquetación responsiva.',
+    period: '2021 - 2026',
+    description: 'Culminación exitosa de la totalidad de la carga académica de la carrera de Ingeniería de Sistemas. Formación integral en arquitectura de software, bases de datos y desarrollo web.',
     achievements: [
-      'Último semestre de la carrera de Ingeniería de Sistemas en curso en el PSM Caracas.',
-      'Desarrollo de múltiples aplicaciones web complejas aplicando metodologías de ingeniería y buenas prácticas.',
-      'Implementación de patrones de arquitectura limpios en el lado del cliente.'
+      'Carga académica 100% completada y aprobada.',
+      'Desarrollo de proyectos y aplicaciones web complejas aplicando metodologías de ingeniería.',
+      'Implementación de patrones de arquitectura limpios y solución sistémica de problemas.'
     ]
   }
 ];

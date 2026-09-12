@@ -46,7 +46,7 @@ const HeroSection = () => {
 
             {/* Subtitle / Bio summary */}
             <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Soy <span className="text-slate-200 font-semibold">Alejandro Viana</span>. Creo aplicaciones web de alto rendimiento combinando React, Tailwind CSS y Supabase con flujos de desarrollo asistidos por Inteligencia Artificial.
+              Soy <span className="text-slate-200 font-semibold">Alejandro Viana</span>, egresado de <span className="text-cyan-300 font-medium">Ingeniería de Sistemas</span>. Creo aplicaciones web de alto rendimiento combinando React, Tailwind CSS y Supabase con flujos de desarrollo asistidos por Inteligencia Artificial.
             </p>
 
             {/* CTAs & Action buttons */}
